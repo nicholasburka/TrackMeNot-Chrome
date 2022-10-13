@@ -14,6 +14,7 @@
  along with Foobar.  If not, see <http://www.gnu.org/licenses/>.
  ********************************************************************************/
 
+//define api (either browser for firefox or chrome for chrome)
 var api;
 if (chrome === undefined) {
     api = browser;
@@ -21,14 +22,16 @@ if (chrome === undefined) {
     api = chrome;
 }
 
+//define trackmenot obj if not defined
 if (!TRACKMENOT)
     var TRACKMENOT = {};
 
 
+//constructor function def'n
 TRACKMENOT.TMNInjected = function() {
     var debug_script = true;
 
-    var tmn_id = 0;
+    var tmn_id = 0; //reset to a given id by the incoming request in handleRequest
     var tmnCurrentURL = '';
     var engine = '';
     //    var allEvents = ['blur','change','click','dblclick','DOMMouseScroll','focus','keydown','keypress','keyup','load','mousedown','mousemove','mouseout','mouseover','mouseup','select'];

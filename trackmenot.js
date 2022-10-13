@@ -75,6 +75,8 @@ TRACKMENOT.TMNSearch = function() {
         /<more>/, /Travel/, /Personals/, /Local/, /Trademarks/,
         /cache/i, /similar/i, /login/i, /mail/i, /feed/i
     );
+
+    //utils
     
      function trim(s) {
         return s.replace(/\n/g, '');
@@ -244,6 +246,7 @@ TRACKMENOT.TMNSearch = function() {
         }
     }
 
+    //diff function name from firefox - 'iniTab' instead of 'initTab'
     function iniTab(tab,pendingRequest) {
         tmn_tab_id = tab.id;
 
@@ -359,7 +362,7 @@ TRACKMENOT.TMNSearch = function() {
 
 
     function extractQueries(html) {
-        var forbiddenChar = new RegExp("^[ @#<>\"\\\/,;'’{}:?%|\^~`=]", "g");
+        var forbiddenChar = new RegExp("^[ @#<>\"\\\/,;'â€™{}:?%|\^~`=]", "g");
         var splitRegExp = new RegExp('^[\\[\\]\\(\\)\\"\']', "g");
 
         if (!html) {
@@ -443,7 +446,7 @@ TRACKMENOT.TMNSearch = function() {
     // returns # of keywords added
     function filterKeyWords(rssTitles) {
         var addStr = ""; //tmp-debugging
-        var forbiddenChar = new RegExp("[ @#<>\"\\\/,;'Õ{}:?%|\^~`=]+", "g");
+        var forbiddenChar = new RegExp("[ @#<>\"\\\/,;'Ã•{}:?%|\^~`=]+", "g");
         var splitRegExp = new RegExp('[\\[\\]\\(\\)\\"\']+', "g");
         var wordArray = rssTitles.split(forbiddenChar);
 
@@ -455,7 +458,7 @@ TRACKMENOT.TMNSearch = function() {
                             wordArray[i + 1].match(splitRegExp))) {
                         var nextWord = wordArray[i + 1]; // added new check here -dch
                         if (nextWord !== nextWord.toLowerCase()) {
-                            nextWord = trim(nextWord.toLowerCase().replace(/\s/g, '').replace(/[(<>"'Õ&]/g, ''));
+                            nextWord = trim(nextWord.toLowerCase().replace(/\s/g, '').replace(/[(<>"'Ã•&]/g, ''));
                             if (nextWord.length > 1) {
                                 word += ' ' + nextWord;
                             }
